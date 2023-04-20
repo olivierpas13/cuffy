@@ -1,13 +1,10 @@
-import Navbar from '../components/Navbar'
+import MainLayout from '@/layouts/MainLayout'
 import HeroSection from '@/components/HeroSection'
 
 export default function Home() {
   return (
-    <>
-    <Navbar/>
-    <main>
+    <MainLayout>
     <HeroSection/>
-    </main>
-    </>
+    </MainLayout>
   )
 }
