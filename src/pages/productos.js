@@ -1,10 +1,10 @@
 import MainLayout from '@/layouts/MainLayout'
-import ProductsComponent from "@/components/Products";
+import AllProducts from '@/components/AllProducts';
 
 const Productos = () => {
     return (
         <MainLayout>
-        <ProductsComponent/>
+            <AllProducts/>
         </MainLayout>
     );
 }
