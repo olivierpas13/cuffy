@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout'
-import ProductsComponent from "@/components/Products";
+import ProductsComponent from "@/components/Products/Products";
 
 const Productos = () => {
     return (
