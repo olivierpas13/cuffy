@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import products from "@/lists/products";
+// import products from "@/lists/products";
 import ProductCard from "./ProductCard";
 
-const Products = () => {
+const Products = ({products, trending}) => {
   const [search, setSearch] = useState("");
   const [selectedProperty, setSelectedProperty] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
@@ -39,7 +39,8 @@ const Products = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Todos los productos</h1>
+        <h1 className="text-3xl font-bold mb-4">
+          {trending? "Los más vendidos": "Todos los productos"}</h1>
         <div className="flex items-center flex-wrap gap-4">
           <div className="mx-3">
             <div className="form-control w-full max-w-xs">
@@ -49,9 +50,10 @@ const Products = () => {
               <select
                 onChange={handlePropertyChange}
                 value={selectedProperty}
+                defaultValue={''}
                 className="select select-bordered"
               >
-                <option disabled selected>
+                <option disabled>
                   Seleccionar
                 </option>
                 <option value="">Todos</option>

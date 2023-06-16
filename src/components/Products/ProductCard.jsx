@@ -14,9 +14,9 @@ const ProductCard = ({product}) => {
         onClick={()=>{
           handleClick(product.id)
         }}
-        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden"
+        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-96"
       >
-        <div className="relative h-56 md:h-64 lg:h-70">
+        <div className="flex relative h-56 md:h-64 lg:w-full">
           <Image
             src={`/products/${product.id}.jpeg`}
             alt={product.name}
@@ -25,10 +25,6 @@ const ProductCard = ({product}) => {
         </div>
         <div className="px-4 py-3">
           <h2 className="text-lg font-medium">{product.name}</h2>
-
-          {/* <p className="text-sm text-gray-500 mb-2">
-            {product.description}
-          </p> */}
           <div className="flex flex-wrap gap-2">
             {product.properties.map((property) => (
               <div
