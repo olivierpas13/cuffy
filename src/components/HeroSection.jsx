@@ -1,4 +1,8 @@
+import { useRouter } from "next/router";
+
+
 const HeroSection = () => {
+  const router = useRouter()
   return (
     <div
       className="hero min-h-screen"
@@ -13,7 +17,7 @@ const HeroSection = () => {
           <p className="mb-5 text-white">
             Tejidos a mano con la mejor calidad desde Quito - Ecuador.
           </p>
-          <button className="btn btn-secondary">Ver productos</button>
+          <button className="btn btn-secondary" onClick={()=>router.push("/productos")} >Ver productos</button>
         </div>
       </div>
     </div>

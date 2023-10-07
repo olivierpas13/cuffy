@@ -7,6 +7,9 @@ const products = [
     properties: ["flor", "mario"],
     status: "Más vendido",
     price: 2.25,
+    mainImage: "/products/1.jpeg",
+    imgs: ["/products/pulpo1.jpeg", "/products/pulpo2.jpeg", "/products/pulpo3.jpeg"],
+    stock: 2,
   },
   {
     id: "2",

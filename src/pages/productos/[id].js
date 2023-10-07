@@ -1,4 +1,4 @@
-import DetailedProduct from "@/components/Products/DetailedProduct";
+import DetailedProduct from "@/components/Products/detailed_product/DetailedProduct";
 import MainLayout from "@/layouts/MainLayout";
 
 const ProductoDetallado = () => {

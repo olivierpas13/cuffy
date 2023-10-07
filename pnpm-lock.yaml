@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@zoom-image/core':
+    specifier: ^0.24.0
+    version: 0.24.0
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
@@ -130,6 +133,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+    dev: false
+
+  /@namnode/store@0.1.0:
+    resolution: {integrity: sha512-4NGTldxKcmY0UuZ7OEkvCjs8ZEoeYB6M2UwMu74pdLiFMKxXbj9HdNk1Qn213bxX1O7bY5h+PLh5DZsTURZkYA==}
     dev: false
 
   /@next/env@13.3.0:
@@ -330,6 +337,12 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.59.0
       eslint-visitor-keys: 3.4.0
+    dev: false
+
+  /@zoom-image/core@0.24.0:
+    resolution: {integrity: sha512-sN2bkyFelUtV9v07Nvhm+V86hVouEGfqsRz0Grqox943vMDn16izS2yRK3ZHuqeyMskvSDxCcC65p8B15ieX+w==}
+    dependencies:
+      '@namnode/store': 0.1.0
     dev: false
 
   /acorn-jsx@5.3.2(acorn@8.8.2):

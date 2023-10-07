@@ -16,20 +16,19 @@ const Footer = () => {
         </div>
         <p className="font-bold">
           Cuffy <br />
-          Tejiendo con amor &lt;3
+          Tejidos con amor &lt;3
         </p>
         <p> Quito, Ecuador</p>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
-          <a href="https://www.tiktok.com/@cuffyec">
-
+          <a href="https://www.tiktok.com/@cuffyec"  target="_blank" rel="noopener noreferrer">
                 <IoLogoTiktok size={25} />           
           </a>
-          <a href="https://www.instagram.com/cuffyec/?hl=es" >
+          <a href="https://www.instagram.com/cuffyec/?hl=es"  target="_blank" rel="noopener noreferrer">
           <IoLogoInstagram size={25} />
           </a>
-          <a href="https://wa.me/593997741067">
+          <a href="https://wa.me/593997741067"  target="_blank" rel="noopener noreferrer">
           <IoLogoWhatsapp size={25}/>
           </a>
         </div>
