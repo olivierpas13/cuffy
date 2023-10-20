@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-const MainGalleryImg = ({imageMoveContainerRef, src}) => {
-    return (
+const MainGalleryImg = ({imageMoveContainerRef, currentImg, imgs}) => {
+  
+  
+  return (
         <div className="flex">
         <div
           ref={imageMoveContainerRef}
@@ -11,7 +13,7 @@ const MainGalleryImg = ({imageMoveContainerRef, src}) => {
             width={450}
             height={450}
             alt="Large Pic"
-            src={src}
+            src={currentImg}
           />
         </div>
     </div>

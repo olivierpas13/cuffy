@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ImgGallery = ({product, currentImg, setCurrentImg}) => {
     return (
-        <ul className="flex flex-col justify-center content-center mr-7 ">
+        <ul className="flex flex-col justify-center content-center mr-7 overflow-auto ">
         <li
           onClick={() => {
             setCurrentImg(product.mainImage);
