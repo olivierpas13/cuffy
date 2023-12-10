@@ -2,11 +2,11 @@ import DetailedProduct from "@/components/Products/detailed_product/DetailedProd
 import MainLayout from "@/layouts/MainLayout";
 
 const ProductoDetallado = () => {
-    return (
-        <MainLayout>
-        <DetailedProduct/>
-        </MainLayout>
-    );
-}
- 
+  return (
+    <MainLayout>
+      <DetailedProduct />
+    </MainLayout>
+  );
+};
+
 export default ProductoDetallado;
