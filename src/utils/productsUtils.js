@@ -1,8 +1,8 @@
-import products from "@/lists/products";
+import { getProductsByProperty } from "@/services/products";
 
-export const getSimilarProducts = (product) =>{
-    return products.filter((prod)=>{
-        return prod.properties.includes(product?.properties[0] || product?.properties[1])
-      }).splice(-5);
-    
-}
+export const getSimilarProducts = async (property) => {
+  // getProductsByProperty(property).then(res=>(res));
+
+  return await getProductsByProperty(property);
+
+};

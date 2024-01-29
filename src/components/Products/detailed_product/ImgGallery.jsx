@@ -2,23 +2,24 @@ import Image from "next/image";
 
 const ImgGallery = ({product, currentImg, setCurrentImg}) => {
     return (
+
         <ul className="flex flex-col justify-center content-center mr-7 overflow-auto ">
         <li
           onClick={() => {
-            setCurrentImg(product.mainImage);
+            setCurrentImg(product.imgs[0]);
           }}
         >
           {" "}
           <Image
             className={`cursor-pointer ${
-              currentImg == product.mainImage
+              currentImg == product.imgs[0]
                 ? "opacity-100"
                 : "opacity-50 hover:opacity-100"
             }`}
             width={130}
             height={130}
             alt={`${product.name} 1`}
-            src={product.mainImage}
+            src={product.imgs[0]}
           />
         </li>
         <li

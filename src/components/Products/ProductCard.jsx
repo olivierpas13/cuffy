@@ -1,24 +1,23 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const ProductCard = ({product}) => {
-  
+const ProductCard = ({ product }) => {
   const router = useRouter();
+  const handleClick = (id) => {
+    router.push(`/productos/${id}`);
+  };
 
-  const handleClick = (id) =>{
-    router.push(`/productos/${id}`)
-  }
-  
   return (
-        <div
-        onClick={()=>{
-          handleClick(product.id)
+    product && 
+      <div
+        onClick={() => {
+          handleClick(product.id);
         }}
         className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-96"
       >
         <div className="flex relative h-56 md:h-64 lg:w-full">
           <Image
-            src={`/products/${product.id}.jpeg`}
+            src={product.imgs[0]}
             alt={product.name}
             fill
           />
@@ -47,13 +46,14 @@ const ProductCard = ({product}) => {
             >
               {product.status}
             </span>
-            <span className="badge badge-secondary badge-lg " >
-              $ {product.price}
+            <span className="badge badge-secondary badge-lg ">
+              $ {product.price.toFixed(2)}
             </span>
           </div>
         </div>
       </div>
-    );
-}
- 
+    
+  );
+};
+
 export default ProductCard;

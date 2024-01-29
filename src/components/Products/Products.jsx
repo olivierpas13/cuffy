@@ -1,7 +1,5 @@
 import { useState } from "react";
-import Image from "next/image";
-
-// import products from "@/lists/products";
+import { properties } from "@/lists/properties";
 import ProductCard from "./ProductCard";
 
 const Products = ({ products, trending }) => {
@@ -31,9 +29,6 @@ const Products = ({ products, trending }) => {
     );
   });
 
-  const allProperties = [
-    ...new Set(products.flatMap((product) => product.properties)),
-  ];
   const allStatuses = [...new Set(products.map((product) => product.status))];
 
   return (
@@ -56,7 +51,7 @@ const Products = ({ products, trending }) => {
               >
                 <option disabled>Seleccionar</option>
                 <option value="">Todos</option>
-                {allProperties.map((property) => (
+                {properties.map((property) => (
                   <option key={property} value={property}>
                     {property.charAt(0).toUpperCase() + property.slice(1)}
                   </option>

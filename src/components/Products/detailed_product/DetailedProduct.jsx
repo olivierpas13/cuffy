@@ -1,33 +1,48 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { createZoomImageMove } from "@zoom-image/core";
 import { useRouter } from "next/router";
 import ProductCard from "../ProductCard";
-import products from "@/lists/products";
 import ImgGallery from "./ImgGallery";
 import MainGalleryImg from "./MainGalleryImg";
 import ProductInfo from "./ProductInfo";
 import ProductBreadcrumbs from "./ProductBreadcrumbs";
 import { getSimilarProducts } from "@/utils/productsUtils";
-
+import { getProductById } from "@/services/products";
 const DetailedProduct = () => {
   const router = useRouter();
-  const productId = router.asPath.split("/")[2];
   const imageMoveContainerRef1 = useRef(null);
   const imageMoveContainerRef2 = useRef(null);
   const imageMoveContainerRef3 = useRef(null);
 
   const [product, setProduct] = useState(null);
+  const [productId, setProductId] = useState(null);
   const [currentImg, setCurrentImg] = useState(null);
   const [similarProducts, setSimilarProducts] = useState(null);
 
   useEffect(() => {
-    const productData = products.find((product) => product.id === productId);
-    setProduct(productData);
-    setCurrentImg(productData?.mainImage);
-    setSimilarProducts(getSimilarProducts(productData));
+    console.log(router.query.id);
+    if (router.isReady) {
+      setProductId(router.asPath.split("/")[2]);
+    }
+  }, [router.isReady]);
+
+  useEffect(() => {
+    if (router.isReady && productId !== null) {
+      getProductById(productId).then((res) => setProduct(res));
+    }
   }, [productId]);
+
+  useEffect(() => {
+    if (product) {
+      console.log(product)
+      setCurrentImg(product.imgs[0]);
+      console.log(currentImg);
+getSimilarProducts(product.properties[0]).then(res=>setSimilarProducts(res));
+      // setSimilarProducts(getSimilarProducts(product.properties[0]));
+    }
+  }, [product]);
 
   useEffect(() => {
     if (product) {
@@ -36,15 +51,15 @@ const DetailedProduct = () => {
       const imageContainer3 = imageMoveContainerRef3.current;
 
       createZoomImageMove(imageContainer1, {
-        zoomImageSource: product.mainImage,
-        zoomFactor: 2,
-      });
-      createZoomImageMove(imageContainer2, {
         zoomImageSource: product.imgs[0],
         zoomFactor: 2,
       });
-      createZoomImageMove(imageContainer3, {
+      createZoomImageMove(imageContainer2, {
         zoomImageSource: product.imgs[1],
+        zoomFactor: 2,
+      });
+      createZoomImageMove(imageContainer3, {
+        zoomImageSource: product.imgs[2],
         zoomFactor: 2,
       });
     }
@@ -61,28 +76,22 @@ const DetailedProduct = () => {
               currentImg={currentImg}
               setCurrentImg={setCurrentImg}
             />
-            <div
-              className={currentImg === product.mainImage ? "flex" : "hidden"}
-            >
+            <div className={currentImg === product.imgs[0] ? "flex" : "hidden"}>
               <MainGalleryImg
                 imageMoveContainerRef={imageMoveContainerRef1}
-                currentImg={product.mainImage}
-              />
-            </div>
-            <div
-              className={currentImg === product.imgs[1] ? "flex" : "hidden"}
-            >
-              <MainGalleryImg
-                imageMoveContainerRef={imageMoveContainerRef2}
                 currentImg={product.imgs[0]}
               />
             </div>
-            <div
-              className={currentImg === product.imgs[2] ? "flex" : "hidden"}
-            >
+            <div className={currentImg === product.imgs[1] ? "flex" : "hidden"}>
+              <MainGalleryImg
+                imageMoveContainerRef={imageMoveContainerRef2}
+                currentImg={product.imgs[1]}
+              />
+            </div>
+            <div className={currentImg === product.imgs[2] ? "flex" : "hidden"}>
               <MainGalleryImg
                 imageMoveContainerRef={imageMoveContainerRef3}
-                currentImg={product.imgs[1]}
+                currentImg={product.imgs[2]}
               />
             </div>
             <ProductInfo product={product} />
