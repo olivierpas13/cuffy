@@ -4,7 +4,7 @@ import MainLayout from "@/layouts/MainLayout";
 const MasVendidos = () => {
     return (
         <MainLayout>
-            <TrendingProducts/>        
+            {/* <TrendingProducts/>         */}
         </MainLayout>
     );
 }
