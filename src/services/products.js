@@ -9,7 +9,7 @@ const baseUrl = process.env.NODE_ENV === 'development'
 
 
 export const createProduct = async (product) => {
-  const response = await axios.post(baseUrl, product);
+  const response = (await axios.post(baseUrl, product));
   return response.data;
 };
 
