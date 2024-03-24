@@ -12,7 +12,7 @@ const Navbar = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
-              fill="none"
+              fill="black"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
@@ -57,16 +57,16 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Acerca de nosotros</a>
+            <a className="btn btn-sm " >Acerca de nosotros</a>
           </li>
           <li>
             <details>
-              <summary>Productos</summary>
+              <summary className="btn btn-sm mx-10">Productos</summary>
               <ul className="p-2 bg-base-100 rounded-t-none">
-                <li>
+                <li >
                   <Link href={"/mas-vendidos"}>Los más vendidos</Link>
                 </li>
-                <li>
+                <li >
                   <Link href={"/productos"}>Todos</Link>
                 </li>
               </ul>
