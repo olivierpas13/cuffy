@@ -7,10 +7,7 @@ import axios from "axios";
 //   ? `http://localhost:3003/api/products`
 //   : "https://cuffy-backend.vercel.app/api/products";
 
-const baseUrl = process.env.NODE_ENV === 'development'
-  ? "https://cuffy-backend.vercel.app/api/products"
-  : `http://localhost:3003/api/products`;
-
+const baseUrl = "https://cuffy-backend.vercel.app/api/products";
 
 export const createProduct = async (product) => {
   const response = (await axios.post(baseUrl, product));
