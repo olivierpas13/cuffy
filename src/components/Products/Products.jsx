@@ -34,7 +34,7 @@ const Products = ({ products, trending }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">
+        <h1 className="text-xl lg:text-3xl font-bold mb-4">
           {trending ? "Los más vendidos" : "Todos los productos"}
         </h1>
         <div className="flex items-center flex-wrap gap-4">
@@ -81,7 +81,7 @@ const Products = ({ products, trending }) => {
               </div>
             </div>
           )}
-          <div className="mx-20">
+          <div className="ml-5 lg:mx-20">
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Buscar por nombre</span>
@@ -97,7 +97,7 @@ const Products = ({ products, trending }) => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid mx-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {filteredProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}

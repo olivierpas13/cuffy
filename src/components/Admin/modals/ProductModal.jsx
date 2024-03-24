@@ -9,10 +9,8 @@ import { properties } from "@/lists/properties";
 import axios from "axios";
 
 const ProductModal = ({ isOpen, onClose }) => {
-console.log(isOpen)
   const onDrop = useCallback((acceptedFiles) => {
     const file = new FileReader();
-    console.log(acceptedFiles);
 
     file.onload = function () {
       setPreview(file.result);

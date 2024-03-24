@@ -11,7 +11,7 @@ import ProductBreadcrumbs from "./ProductBreadcrumbs";
 import { getSimilarProducts } from "@/utils/productsUtils";
 import { getProductById } from "@/services/products";
 
-const DetailedProduct = () => {
+const DetailedTest = () => {
   const router = useRouter();
   const imageMoveContainerRef = useRef(null);
   const [product, setProduct] = useState(null);
@@ -89,4 +89,4 @@ const DetailedProduct = () => {
   );
 };
 
-export default DetailedProduct;
+export default DetailedTest;

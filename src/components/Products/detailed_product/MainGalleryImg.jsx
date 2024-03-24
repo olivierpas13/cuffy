@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const MainGalleryImg = ({ imageMoveContainerRef, currentImg }) => {
   return (
