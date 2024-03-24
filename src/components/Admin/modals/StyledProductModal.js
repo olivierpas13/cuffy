@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledProductModal = styled.div`
-  display: ${(props) => (props.isOpen ? "flex" : "none")};
+  display: ${(props) => (props.$isOpen ? "flex" : "none")};
   position: fixed;
   top: 0;
   left: 0;

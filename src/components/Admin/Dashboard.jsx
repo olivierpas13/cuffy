@@ -13,14 +13,20 @@ const Dashboard = () => {
   return (
     user && (
       <div className="drawer lg:drawer-open grid-cols-8">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <ProductModal isOpen={open} onClose={() => setOpen(false)} />
-        <DeleteProductModal isOpen={openDelete} onClose={() => setOpenDelete(false)} />
-        <Sidebar
-          setOpen={setOpen}
-          setOpenDelete={setOpenDelete}
-          nickname={user.nickname}
-          picture={user.picture}
+        <DeleteProductModal
+          isOpen={openDelete}
+          onClose={() => setOpenDelete(false)}
         />
+        <div id="sidebar" className="col-span-1 drawer-side ">
+          <Sidebar
+            setOpen={setOpen}
+            setOpenDelete={setOpenDelete}
+            nickname={user.nickname}
+            picture={user.picture}
+          />
+        </div>
         <div id="content" className="col-span-7 drawer-content flex flex-col">
           <p className="font-semibold text-primary flex-none navbar sitcky top-0 bg-white">
             Dashboard

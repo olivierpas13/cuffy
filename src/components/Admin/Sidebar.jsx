@@ -4,8 +4,7 @@ import Link from "next/link";
 
 const Sidebar = ({ nickname, picture, setOpen, setOpenDelete }) => {
   return (
-    <div id="sidebar" className=" col-span-1 drawer-side bg-white">
-      <ul className="p-4 flex flex-col gap-y-4">
+      <ul className=" p-4 flex flex-col gap-y-4 place-items-center">
         <li>
           <Link className="flex items-center" href="/admin/dashboard">
             <img
@@ -26,7 +25,6 @@ const Sidebar = ({ nickname, picture, setOpen, setOpenDelete }) => {
             Create a product
           </button>
         </li>
-
         <li>
           <button className="btn btn-ghost" onClick={() => setOpenDelete(true)}>
             Delete a product
@@ -36,7 +34,6 @@ const Sidebar = ({ nickname, picture, setOpen, setOpenDelete }) => {
           <button className="btn btn-ghost">Edit a product</button>
         </li>
       </ul>
-    </div>
   );
 };
 

@@ -23,7 +23,7 @@ const DeleteProductModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <StyledProductModal onClick={() => onClose()} isOpen={isOpen}>
+    <StyledProductModal onClick={() => onClose()} $isOpen={isOpen}>
       {isOpen && (
         <div
           className="customModal"

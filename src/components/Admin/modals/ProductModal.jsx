@@ -9,7 +9,7 @@ import { properties } from "@/lists/properties";
 import axios from "axios";
 
 const ProductModal = ({ isOpen, onClose }) => {
-
+console.log(isOpen)
   const onDrop = useCallback((acceptedFiles) => {
     const file = new FileReader();
     console.log(acceptedFiles);
@@ -34,11 +34,9 @@ const ProductModal = ({ isOpen, onClose }) => {
     const formData = new FormData();
 
 
-    const seventeen = acceptedFiles.map((file) => {
+    const promises = acceptedFiles.map((file) => {
       formData.append("file", file);
-      // formData.append("upload_preset", "upn1l4hd");
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
-      // formData.append("api_key", "944181859311665");
       formData.append("api_key", process.env.CLODINARY_API_KEY);
 
       return axios.post(
@@ -47,7 +45,7 @@ const ProductModal = ({ isOpen, onClose }) => {
       );
     });
 
-    const imgsData = await Promise.all(seventeen);
+    const imgsData = await Promise.all(promises);
 
     if (imgsData) {
       const res = imgsData.map((img) => {
@@ -77,7 +75,7 @@ const ProductModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <StyledProductModal onClick={() => onClose()} isOpen={isOpen}>
+    <StyledProductModal onClick={() => onClose()} $isOpen={isOpen}>
       {isOpen && (
         <div
           className="customModal"
