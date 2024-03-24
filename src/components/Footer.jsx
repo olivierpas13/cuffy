@@ -1,3 +1,4 @@
+import wpLink from "@/utils/wpLInk";
 import { IoRose, IoLogoTiktok, IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io5";
 
 const Footer = () => {
@@ -28,7 +29,7 @@ const Footer = () => {
           <a href="https://www.instagram.com/cuffyec/?hl=es"  target="_blank" rel="noopener noreferrer">
           <IoLogoInstagram size={25} />
           </a>
-          <a href="https://wa.me/593997741067"  target="_blank" rel="noopener noreferrer">
+          <a href={wpLink}  target="_blank" rel="noopener noreferrer">
           <IoLogoWhatsapp size={25}/>
           </a>
         </div>
