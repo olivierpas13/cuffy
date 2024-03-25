@@ -59,17 +59,21 @@ const DetailedProduct = () => {
       {product && currentImg && (
         <div className="container h-auto p-14 flex m-auto flex-col overflow-scroll">
           <ProductBreadcrumbs name={product.name} />
-          <div className="w-3/4	mx-auto flex justify-center flex-row content-center">
-            <ImgGallery
-              product={product}
-              currentImg={currentImg}
-              setCurrentImg={setCurrentImg}
-            />
-            <div>
-              <MainGalleryImg
-                imageMoveContainerRef={imageMoveContainerRef}
-                currentImg={currentImg}
-              />
+          <div className="w-4/4 lg:w-3/4 mx-auto flex justify-center flex-col lg:flex-row content-center">
+            <div id="imgs" className="flex flex-col lg:flex-row ">
+              <div className="order-last lg:order-first w-5/6 lg:w-6/6 mx-auto mt-3" >
+                <ImgGallery
+                  product={product}
+                  currentImg={currentImg}
+                  setCurrentImg={setCurrentImg}
+                />
+              </div>
+              <div>
+                <MainGalleryImg
+                  imageMoveContainerRef={imageMoveContainerRef}
+                  currentImg={currentImg}
+                />
+              </div>
             </div>
             <ProductInfo product={product} />
           </div>

@@ -1,13 +1,15 @@
+import { formatAsCurrency } from "@/utils/productsUtils";
+
 const ProductInfo = ({product}) => {
     return (
-        <div className="basis-3/6 p-8 flex flex-col my-auto">
-        <h2 className="text-2xl tracking-wide font-semibold text-primary-content">
+        <div className="basis-3/6 mt-6 lg:mt-0 lg:p-8 flex flex-col my-auto">
+        <h2 className="text-lg lg:text-2xl tracking-wide font-light lg:font-semibold text-primary-content">
           {product.name}
         </h2>
         <h3 className="text-4xl tracking-wide py-3 my-auto font-semibold text-secondary-content">
-          $ {product.price}
+          {formatAsCurrency(product.price)}
         </h3>
-        <p className="py-3 leading-8">{product.description}</p>
+        <p className="py-3 leading-8 font-light">{product.description}</p>
         <div className="flex flex-wrap gap-2">
           {product.properties.map((property) => (
             <div

@@ -3,7 +3,7 @@ import Image from "next/image";
 const ImgGallery = ({product, currentImg, setCurrentImg}) => {
     return (
 
-        <ul className="flex flex-col justify-center content-center md:mr-7 overflow-auto ">
+        <ul className="flex flex-row lg:flex-col justify-center content-center md:mr-7 overflow-auto ">
         <li
           onClick={() => {
             setCurrentImg(product.imgs[0]);
@@ -23,6 +23,7 @@ const ImgGallery = ({product, currentImg, setCurrentImg}) => {
           />
         </li>
         <li
+        className="mx-2 lg:mx-0"
           onClick={() => {
             setCurrentImg(product.imgs[1]);
           }}

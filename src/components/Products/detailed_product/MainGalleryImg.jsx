@@ -5,7 +5,7 @@ const MainGalleryImg = ({ imageMoveContainerRef, currentImg }) => {
   return (
     <div
       ref={imageMoveContainerRef}
-      className="relative my-auto cursor-crosshair overflow-hidden"
+      className="relative my-auto cursor-crosshair overflow-hidden mt-4 lg:mt-0"
     >
       <Image
         width={450}
