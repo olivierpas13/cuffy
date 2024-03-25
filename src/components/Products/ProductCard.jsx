@@ -1,3 +1,4 @@
+import { getColorBasedOnStatus } from "@/utils/productsUtils";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -8,22 +9,20 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    product && 
+    product && (
       <div
         onClick={() => {
           handleClick(product.id);
         }}
         className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-70 lg:h-96"
       >
-        <div className="flex relative h-36 md:h-64 lg:w-full">
-          <Image
-            src={product.imgs[0]}
-            alt={product.name}
-            fill
-          />
+        <div className="flex relative h-52 md:h-64 lg:w-full">
+          <Image src={product.imgs[0]} alt={product.name} fill />
         </div>
         <div className="px-4 py-3">
-          <h2 className="text-md lg:text-lg font-medium break-words">{product.name}</h2>
+          <h2 className="text-md lg:text-lg font-medium break-words">
+            {product.name}
+          </h2>
           <div className="flex flex-wrap gap-2">
             {product.properties.map((property) => (
               <div
@@ -34,15 +33,11 @@ const ProductCard = ({ product }) => {
               </div>
             ))}
           </div>
-          <div className="mt-3 flex flex-col lg:flex-row justify-between items-center">
+          <div className="mt-3 flex flex-col lg:flex-row justify-between items-end">
             <span
-              className={`inline-block px-2 py-1 rounded-md text-sm font-medium ${
-                product.status === "En stock"
-                  ? "bg-green-100 text-green-800"
-                  : product.status === "Más vendido"
-                  ? "bg-yellow-100 text-yellow-800"
-                  : "bg-red-100 text-red-800"
-              }`}
+              className={`inline-block px-2 py-1 rounded-md text-sm font-medium ${getColorBasedOnStatus(
+                product.status
+              )}`}
             >
               {product.status}
             </span>
@@ -52,7 +47,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </div>
-    
+    )
   );
 };
 

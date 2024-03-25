@@ -58,7 +58,7 @@ const DetailedProduct = () => {
   return (
     <>
       {product && currentImg && (
-        <div className="container h-auto p-14 px-6 flex m-auto flex-col overflow-scroll">
+        <div className="container h-auto p-14 px-6 flex m-auto flex-col ">
           <ProductBreadcrumbs name={product.name} />
           <div className="w-4/4 lg:w-3/4 mx-auto flex justify-center flex-col lg:flex-row content-center">
             <div id="imgs" className="flex flex-col lg:flex-row ">

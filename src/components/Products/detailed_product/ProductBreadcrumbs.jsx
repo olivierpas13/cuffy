@@ -1,6 +1,6 @@
 const ProductBreadcrumbs = ({name}) => {
     return (
-        <div className="text-sm breadcrumbs md:p-12 overflow-scroll">
+        <div className="text-sm breadcrumbs md:p-12 overflow-scroll lg:overflow-hidden">
         <ul>
           <li>
             <a href={"/"}>Inicio</a>
