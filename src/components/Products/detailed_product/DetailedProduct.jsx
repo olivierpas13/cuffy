@@ -10,6 +10,7 @@ import ProductInfo from "./ProductInfo";
 import ProductBreadcrumbs from "./ProductBreadcrumbs";
 import { getSimilarProducts } from "@/utils/productsUtils";
 import { getProductById } from "@/services/products";
+import SimilarProducts from "../SimilarProducts";
 
 const DetailedProduct = () => {
   const router = useRouter();
@@ -57,7 +58,7 @@ const DetailedProduct = () => {
   return (
     <>
       {product && currentImg && (
-        <div className="container h-auto p-14 flex m-auto flex-col overflow-scroll">
+        <div className="container h-auto p-14 px-6 flex m-auto flex-col overflow-scroll">
           <ProductBreadcrumbs name={product.name} />
           <div className="w-4/4 lg:w-3/4 mx-auto flex justify-center flex-col lg:flex-row content-center">
             <div id="imgs" className="flex flex-col lg:flex-row ">
@@ -78,14 +79,7 @@ const DetailedProduct = () => {
             <ProductInfo product={product} />
           </div>
           {similarProducts && (
-            <div className="mt-20">
-              <p className="text-2xl text-center">Productos relacionados</p>
-              <div className="flex justify-evenly p-7 gap-0">
-                {similarProducts.map((product) => {
-                  return <ProductCard key={product.id} product={product} />;
-                })}
-              </div>
-            </div>
+            <SimilarProducts similarProducts={similarProducts} />
           )}
         </div>
       )}

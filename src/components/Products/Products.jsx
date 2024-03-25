@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { properties } from "@/lists/properties";
 import ProductCard from "./ProductCard";
+import FilteredProducts from "./FilteredProducts";
 
 const Products = ({ products, trending }) => {
   const [search, setSearch] = useState("");
@@ -97,11 +98,9 @@ const Products = ({ products, trending }) => {
           </div>
         </div>
       </div>
-      <div className="grid mx-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {filteredProducts.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
-        })}
-      </div>
+      <FilteredProducts 
+        filteredProducts={filteredProducts}
+      />
     </div>
   );
 };

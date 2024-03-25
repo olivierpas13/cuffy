@@ -13,9 +13,9 @@ const ProductCard = ({ product }) => {
         onClick={() => {
           handleClick(product.id);
         }}
-        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-96"
+        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-70 lg:h-96"
       >
-        <div className="flex relative h-56 md:h-64 lg:w-full">
+        <div className="flex relative h-36 md:h-64 lg:w-full">
           <Image
             src={product.imgs[0]}
             alt={product.name}
@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
           />
         </div>
         <div className="px-4 py-3">
-          <h2 className="text-lg font-medium">{product.name}</h2>
+          <h2 className="text-md lg:text-lg font-medium break-words">{product.name}</h2>
           <div className="flex flex-wrap gap-2">
             {product.properties.map((property) => (
               <div
@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
               </div>
             ))}
           </div>
-          <div className="mt-3 flex justify-between	items-center">
+          <div className="mt-3 flex flex-col lg:flex-row justify-between items-center">
             <span
               className={`inline-block px-2 py-1 rounded-md text-sm font-medium ${
                 product.status === "En stock"
@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
             >
               {product.status}
             </span>
-            <span className="badge badge-secondary badge-lg ">
+            <span className="badge badge-secondary badge-lg mt-2 lg:mt-0">
               $ {product.price.toFixed(2)}
             </span>
           </div>
