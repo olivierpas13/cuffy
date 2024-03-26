@@ -1,36 +1,35 @@
-import { useState } from "react";
 import { properties } from "@/lists/properties";
-import ProductCard from "./ProductCard";
+import { useInView } from "react-intersection-observer";
 import FilteredProducts from "./FilteredProducts";
+import { useProductFilters } from "@/utils/productsUtils";
+import { useEffect } from "react";
 
-const Products = ({ products, trending }) => {
-  const [search, setSearch] = useState("");
-  const [selectedProperty, setSelectedProperty] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState("");
+const Products = ({
+  data,
+  error,
+  trending,
+  status,
+  fetchNextPage,
+  isFetchingNextPage,
+}) => {
+  const {
+    search,
+    selectedProperty,
+    selectedStatus,
+    handleSearchChange,
+    handlePropertyChange,
+    handleStatusChange,
+    filteredProducts,
+    allStatuses,
+  } = useProductFilters((data.pages.map(page=>page.page.map(item=>(item)))).flatMap(el=>el));
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
+  const { ref, inView } = useInView();
 
-  const handlePropertyChange = (e) => {
-    setSelectedProperty(e.target.value);
-  };
-
-  const handleStatusChange = (e) => {
-    setSelectedStatus(e.target.value);
-  };
-
-  const filteredProducts = products.filter((product) => {
-    return (
-      (product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.description.toLowerCase().includes(search.toLowerCase())) &&
-      (selectedProperty === "" ||
-        product.properties.includes(selectedProperty)) &&
-      (selectedStatus === "" || product.status === selectedStatus)
-    );
-  });
-
-  const allStatuses = [...new Set(products.map((product) => product.status))];
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [fetchNextPage, inView]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -98,9 +97,10 @@ const Products = ({ products, trending }) => {
           </div>
         </div>
       </div>
-      <FilteredProducts 
-        filteredProducts={filteredProducts}
-      />
+      {status === "pending" && <div>Loading...</div>}
+      {status === "error" && <div>{error.message}</div>}
+      <FilteredProducts filteredProducts={filteredProducts} />
+      <div ref={ref} >{isFetchingNextPage && "Cargando más productos..."}</div>
     </div>
   );
 };

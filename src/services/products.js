@@ -19,6 +19,11 @@ export const getProducts = async () => {
   return response.data;
 };
 
+export const getProductsPage = async (index) =>{
+  const res = await axios.get(`${baseUrl}/page/${index.pageParam}`);
+  return res.data;
+}
+
 export const getProductById = async (id) => {
   const response = await axios.get(`${baseUrl}/${id}`);
   return response.data;

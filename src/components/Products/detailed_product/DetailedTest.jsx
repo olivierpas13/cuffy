@@ -42,7 +42,6 @@ const DetailedTest = () => {
 
   useEffect(() => {
     if (product && currentImg) {
-      console.log(imageMoveContainerRef);
       const imageContainer = imageMoveContainerRef.current;
       if (zoomed.current) {
         zoomed.current.cleanup();

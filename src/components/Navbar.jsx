@@ -40,6 +40,9 @@ const Navbar = () => {
                 <li>
                   <Link href={"/productos"}>Todos</Link>
                 </li>
+                <li>
+                  <Link href={"/productos/ramos"}>Ramos</Link>
+                </li>
               </ul>
             </li>
           </ul>
