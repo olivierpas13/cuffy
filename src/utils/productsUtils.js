@@ -1,11 +1,6 @@
 import { getProductsByProperty } from "@/services/products";
+import { useQuery } from "@tanstack/react-query";
 import { useState, useMemo } from "react";
-
-export const getSimilarProducts = async (property) => {
-
-  return await getProductsByProperty(property);
-
-};
 
 export const formatAsCurrency = (money) =>{
   return money.toLocaleString('en-US', { style: 'currency', currency: 'USD' });

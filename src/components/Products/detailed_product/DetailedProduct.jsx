@@ -3,12 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { createZoomImageMove } from "@zoom-image/core";
 import { useRouter } from "next/router";
-import ProductCard from "../ProductCard";
 import ImgGallery from "./ImgGallery";
 import MainGalleryImg from "./MainGalleryImg";
 import ProductInfo from "./ProductInfo";
 import ProductBreadcrumbs from "./ProductBreadcrumbs";
-import { getSimilarProducts } from "@/utils/productsUtils";
 import { getProductById } from "@/services/products";
 import SimilarProducts from "../SimilarProducts";
 
@@ -18,7 +16,6 @@ const DetailedProduct = () => {
   const [product, setProduct] = useState(null);
   const [productId, setProductId] = useState(null);
   const [currentImg, setCurrentImg] = useState(null);
-  const [similarProducts, setSimilarProducts] = useState(null);
   const zoomed = useRef(null);
   useEffect(() => {
     if (router.isReady) {
@@ -35,9 +32,6 @@ const DetailedProduct = () => {
   useEffect(() => {
     if (product) {
       setCurrentImg(product.imgs[0]);
-      getSimilarProducts(product.properties[0]).then((res) =>
-        setSimilarProducts(res)
-      );
     }
   }, [product]);
 
@@ -77,9 +71,7 @@ const DetailedProduct = () => {
             </div>
             <ProductInfo product={product} />
           </div>
-          {similarProducts && (
-            <SimilarProducts similarProducts={similarProducts} />
-          )}
+            <SimilarProducts property={product.properties[0]} />
         </div>
       )}
     </>
