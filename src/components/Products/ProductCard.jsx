@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
         }}
         className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-70 lg:h-96"
       >
-        <div className="flex relative h-52 md:h-64 lg:w-full">
+        <div className="flex relative h-52 md:h-68 lg:w-full">
           <Image src={product.imgs[0]} alt={product.name} fill />
         </div>
         <div className="px-4 py-3">
