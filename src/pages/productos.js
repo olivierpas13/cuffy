@@ -2,7 +2,7 @@ import MainLayout from "@/layouts/MainLayout";
 import ProductsComponent from "@/components/Products/Products";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getProductsPage } from "@/services/products";
-import ProductsSkeleton from "@/components/Products/ProductsSkeleton";
+import Skeleton from "@/components/General/Skeleton";
 
 const Productos = () => {
 
@@ -14,7 +14,7 @@ const Productos = () => {
   });
   return (
     <MainLayout>
-      {status === "pending" && <ProductsSkeleton/>}
+      {status === "pending" && <Skeleton/>}
       {status === "success" && <ProductsComponent
         data={data}
         error={error}

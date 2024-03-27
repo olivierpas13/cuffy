@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
         onClick={() => {
           handleClick(product.id);
         }}
-        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden h-70 lg:h-96"
+        className="bg-white cursor-pointer rounded-md shadow-md overflow-hidden lg:h-96"
       >
         <div className="flex relative h-52 md:h-68 lg:w-full">
           <Image src={product.imgs[0]} alt={product.name} fill />
