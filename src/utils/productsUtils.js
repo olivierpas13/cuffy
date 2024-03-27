@@ -2,9 +2,9 @@ import { getProductsByProperty } from "@/services/products";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useMemo } from "react";
 
-export const formatAsCurrency = (money) =>{
-  return money.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-}
+export const formatAsCurrency = (money) => {
+  return money.toLocaleString("en-US", { style: "currency", currency: "USD" });
+};
 
 export const getColorBasedOnStatus = (status) => {
   switch (status) {
@@ -15,7 +15,7 @@ export const getColorBasedOnStatus = (status) => {
     default:
       return "bg-red-100 text-red-800";
   }
-}
+};
 
 export const useProductFilters = (products) => {
   const [search, setSearch] = useState("");
@@ -34,18 +34,24 @@ export const useProductFilters = (products) => {
     setSelectedStatus(e.target.value);
   };
 
-  const filteredProducts = useMemo(() =>
-    products.filter((product) => {
-      return (
-        (product.name.toLowerCase().includes(search.toLowerCase()) ||
-          product.description.toLowerCase().includes(search.toLowerCase())) &&
-        (selectedProperty === "" || product.properties.includes(selectedProperty)) &&
-        (selectedStatus === "" || product.status === selectedStatus)
-      );
-    }), [products, search, selectedProperty, selectedStatus]);
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product) => {
+        return (
+          (product.name.toLowerCase().includes(search.toLowerCase()) ||
+            product.description.toLowerCase().includes(search.toLowerCase())) &&
+          (selectedProperty === "" ||
+            product.properties.includes(selectedProperty)) &&
+          (selectedStatus === "" || product.status === selectedStatus)
+        );
+      }),
+    [products, search, selectedProperty, selectedStatus]
+  );
 
-  const allStatuses = useMemo(() =>
-    [...new Set(products.map((product) => product.status))], [products]);
+  const allStatuses = useMemo(
+    () => [...new Set(products.map((product) => product.status))],
+    [products]
+  );
 
   return {
     search,
@@ -55,6 +61,12 @@ export const useProductFilters = (products) => {
     handlePropertyChange,
     handleStatusChange,
     filteredProducts,
-    allStatuses
+    allStatuses,
   };
-}
+};
+
+export const extractDataFromIQuery = (data) => {
+  return data.pages
+    .map((page) => page.page.map((item) => item))
+    .flatMap((el) => el);
+};

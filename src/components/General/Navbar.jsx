@@ -38,10 +38,10 @@ const Navbar = () => {
                   <Link href={"/mas-vendidos"}>Los más vendidos</Link>
                 </li>
                 <li>
-                  <Link href={"/productos"}>Todos</Link>
+                  <Link href={"/productos/ramos"}>Ramos</Link>
                 </li>
                 <li>
-                  <Link href={"/productos/ramos"}>Ramos</Link>
+                  <Link href={"/productos"}>Todos</Link>
                 </li>
               </ul>
             </li>
@@ -60,16 +60,19 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className="btn btn-sm " >Acerca de nosotros</a>
+            <a className="btn btn-sm ">Acerca de nosotros</a>
           </li>
           <li>
             <details>
               <summary className="btn btn-sm mx-10">Productos</summary>
               <ul className="p-2 bg-base-100 rounded-t-none">
-                <li >
+                <li>
                   <Link href={"/mas-vendidos"}>Los más vendidos</Link>
                 </li>
-                <li >
+                <li>
+                  <Link href={"/productos/ramos"}>Ramos</Link>
+                </li>
+                <li>
                   <Link href={"/productos"}>Todos</Link>
                 </li>
               </ul>

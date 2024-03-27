@@ -5,7 +5,7 @@ const Skeleton = () => {
 
   for (let i = 0; i < 8; i++) {
     elements.push(
-      <div className="skeleton opacity-50 rounded-md overflow-hidden h-72 lg:h-96" />
+      <div key={i} className="skeleton opacity-50 rounded-md overflow-hidden h-72 lg:h-96" />
     );
   }
 

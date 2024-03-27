@@ -13,6 +13,7 @@ const Products = ({
   status,
   fetchNextPage,
   isFetchingNextPage,
+  title,
 }) => {
   const {
     search,
@@ -24,7 +25,7 @@ const Products = ({
     filteredProducts,
     allStatuses,
   } = useProductFilters(
-    data.pages.map((page) => page.page.map((item) => item)).flatMap((el) => el)
+    data
   );
 
   const { ref, inView } = useInView();
@@ -38,9 +39,7 @@ const Products = ({
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-xl lg:text-3xl font-bold mb-4">
-          {trending ? "Los más vendidos" : "Todos los productos"}
-        </h1>
+        <h1 className="text-xl lg:text-3xl font-bold mb-4">{title}</h1>
         <ProductsFilters
           properties={properties}
           selectedProperty={selectedProperty}

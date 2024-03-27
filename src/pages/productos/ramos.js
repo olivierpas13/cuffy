@@ -1,9 +1,12 @@
-import MainLayout from "@/layouts/MainLayout"
+import MainLayout from "@/layouts/MainLayout";
+import Bouquets from "@/components/Products/Bouquets";
 
 const Ramos = () => {
   return (
-    <MainLayout>Ramos</MainLayout>
-  )
-}
+    <MainLayout>
+      <Bouquets />
+    </MainLayout>
+  );
+};
 
-export default Ramos
+export default Ramos;
