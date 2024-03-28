@@ -1,4 +1,4 @@
-import { formatAsCurrency } from "@/utils/productsUtils";
+import { formatAsCurrency, sendBuyMessage } from "@/utils/productsUtils";
 
 const ProductInfo = ({product}) => {
     return (
@@ -34,12 +34,12 @@ const ProductInfo = ({product}) => {
 
           <p> <span className="font-semibold" > Disponibilidad:</span> <span className=" text-gray-400	" >{product.stock} disponibles</span></p>
 
-        <button
-          onClick={() => {}}
-          className="btn btn-md my-8 bg-black text-white	 rounded-md block"
+        <a
+          href={sendBuyMessage(product.name)}
+          className="btn btn-md my-8 bg-black text-white rounded-md block content-center"
         >
-          Comprar
-        </button>
+          COMPRAR
+        </a>
       </div>
     );
 }

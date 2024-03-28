@@ -70,3 +70,10 @@ export const extractDataFromIQuery = (data) => {
     .map((page) => page.page.map((item) => item))
     .flatMap((el) => el);
 };
+
+export const sendBuyMessage = (productName) => {
+  const phoneNumber = "593989289242";
+  const message = encodeURIComponent(`Hola, estoy interesado en comprar el producto ${productName}. ¿Podrían proporcionarme más información al respecto? Gracias.`);
+  return `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${message}`;
+}
+
